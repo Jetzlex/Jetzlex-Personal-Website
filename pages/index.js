@@ -13,7 +13,7 @@ export default function Home() {
         <div className="mt-5 md:mt-16">
           <div className="md:grid md:grid-cols-12 gap-5">
             <div className="col-span-9">
-              <p className={style.homeTitle + ' text-4xl'}>Emirhan Aksu</p>
+              <p className={style.homeTitle + ' text-4xl test'}>Emirhan Aksu</p>
               <p className={style.homeDescription + ' text-lg'}>
                 Full-Stack developer. I live in Turkey. 15 y/o high school
                 student. I am a self-improvement ordinary person who continues

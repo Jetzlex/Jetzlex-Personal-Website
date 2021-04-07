@@ -1,8 +1,9 @@
-import 'tailwindcss/tailwind.css';
+import '../public/styles/global.css';
 import '../public/styles/app.css';
 import Header from '../components/header';
 
 import NProgress from 'nprogress';
+
 import Router from 'next/router';
 import Head from 'next/head';
 
