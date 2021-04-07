@@ -3,4 +3,70 @@
 @tailwind utilities;
 
 @layer components {
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  body {
+    background: #000;
+    font-family: 'Poppins', sans-serif;
+  }
+  .border-jetzlex {
+    border-color: #21252c;
+  }
+  .bg-dark {
+    background-color: #0d1017;
+  }
+  .bg-gray {
+    background-color: #161b21;
+  }
+  .badge {
+    @apply rounded-lg bg-gray w-full py-1 px-3 text-white;
+  }
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  .line-clamp-4 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+  .line-clamp-5 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+  }
+  .blogCardImg {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .blogCardImg i {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position:relative;
+    font-size: 30px;
+    padding-top: 35%;
+  }
+  .blogCardImg:hover i {
+    display: block;
+  }
+  .blogCardImg:hover i {
+    background-color: rgba(0,0,0,.3);
+  }
 }
