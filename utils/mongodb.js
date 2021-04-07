@@ -7,9 +7,6 @@ const connectDB = (handler) => async (req, res) => {
   await mongoose.connect(
     'mongodb+srv://giftydbuser:RPLYbjULCNyS6TTW@cluster0.khxoz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
     {
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
       useNewUrlParser: true,
     }
   );
