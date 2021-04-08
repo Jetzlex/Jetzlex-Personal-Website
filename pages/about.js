@@ -16,7 +16,7 @@ function About() {
           <p class="text-gray-300">
             <i className="text-4xl ml-0 twa twa-us"></i>
             <br />
-            Hello, I'm Emirhan. in fact I am 15 years old but look like 18 😂 I
+            Hello, I'm Emirhan. In fact I am 15 years old but look like 18 😂 I
             grew up Turkey / İzmir, and I still live here. I am in 9th grade and
             studying softwaer enginering. For 5 years, I have tried to improve
             myself in every field in the software industry, I have tried to
@@ -36,7 +36,7 @@ function About() {
             <br />
             <i className="text-4xl ml-0 twa twa-turkey-flag"></i>
             <br />
-            Merhaba, ben Emirhan. aslında 15 yaşındayım ama 18 gibi gösteriyorum
+            Merhaba, ben Emirhan. Aslında 15 yaşındayım ama 18 gibi gösteriyorum
             😂 Türkiye/İzmir'de doğdum büyüdüm ve hâlâ burada yaşıyorum. 9.
             sınıfa gidiyorum ve bilişim teknolojileri alanını okuyorum. 5
             senedir yazılım sektöründe her alanda kendimi geliştirmeye çalıştım,
