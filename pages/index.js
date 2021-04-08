@@ -7,7 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 function Home({ HomeProps }) {
   const { loginWithPopup, isLoading, isAuthenticated, user } = useAuth0();
-  console.log(isAuthenticated, user)
+  if (isAuthenticated) return <div>{user.name}</div>;
   return (
     <div>
       <Head>
