@@ -5,9 +5,8 @@ import NProgress from 'nprogress';
 import Router from 'next/router';
 import Head from 'next/head';
 import { Auth0Provider } from '@auth0/auth0-react';
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from '@auth0/auth0-react';
 import Footer from '../components/footer';
-
 
 Router.onRouteChangeStart = (url) => {
   NProgress.start();
@@ -32,12 +31,16 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
         ></link>
+        <link
+          href="https://rawgit.com/ellekasai/twemoji-awesome/gh-pages/twemoji-awesome.css"
+          rel="stylesheet"
+        />
       </Head>
       <Header />
       <main>
         <Component {...pageProps} />
       </main>
-      <Footer/>
+      <Footer />
     </Auth0Provider>
   );
 }

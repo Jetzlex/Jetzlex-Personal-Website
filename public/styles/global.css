@@ -59,7 +59,7 @@
     display: none;
     height: 100%;
     width: 100%;
-    position:relative;
+    position: relative;
     font-size: 30px;
     padding-top: 35%;
   }
@@ -67,6 +67,9 @@
     display: block;
   }
   .blogCardImg:hover i {
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .desc {
+    font-weight: 300;
   }
 }

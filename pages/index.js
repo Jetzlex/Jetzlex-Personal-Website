@@ -2,8 +2,8 @@ import Head from 'next/head';
 import style from '../public/styles/modules/Home.module.css';
 import appStyle from '../public/styles/modules/App.module.css';
 import BlogList from '../components/home/blogList';
-import fetch from 'isomorphic-unfetch';
-import Link from 'next/link';
+//import fetch from 'isomorphic-unfetch';
+//import Link from 'next/link';
 import Technologies from '../components/home/technologies';
 
 function Home({ HomeProps }) {
@@ -29,7 +29,10 @@ function Home({ HomeProps }) {
                 </p>
               </div>
               <div className="col-span-2">
-                <img className="rounded-full shadow-lg w-4/5" src="/images/me.jpg" />
+                <img
+                  className="rounded-full shadow-lg w-4/5"
+                  src="/images/me.jpg"
+                />
               </div>
             </div>
             <div className="flex">
@@ -61,13 +64,6 @@ function Home({ HomeProps }) {
           </div>
         </div>
       </div>
-      <style jsx>
-        {`
-          .desc {
-            font-weight: 300;
-          }
-        `}
-      </style>
     </div>
   );
 }
