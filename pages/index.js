@@ -4,11 +4,9 @@ import appStyle from '../public/styles/modules/App.module.css';
 import BlogList from '../components/home/blogList';
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link';
-import { useAuth0 } from '@auth0/auth0-react';
 import Technologies from '../components/home/technologies';
 
 function Home({ HomeProps }) {
-  const { loginWithPopup, isLoading, isAuthenticated, user } = useAuth0();
   return (
     <div>
       <Head>
@@ -17,14 +15,23 @@ function Home({ HomeProps }) {
       <div className="max-w-4xl mx-auto">
         <div className="mt-5 md:mt-12 px-5 md:px-0">
           <div>
-            <p className={style.homeTitle + ' text-5xl mb-2 font-extrabold'}>
-              Jetzlex 
-            </p>
-            <p className={style.homeDescription + ' desc text-lg max-w-xl'}>
-              Full-Stack developer. I live in Turkey. 15 y/o high school
-              student. I am a self-improvement ordinary person who continues to
-              improve.
-            </p>
+            <div class="grid grid-cols-10 items-center">
+              <div class="col-span-8">
+                <p
+                  className={style.homeTitle + ' text-5xl mb-2 font-extrabold'}
+                >
+                  Jetzlex
+                </p>
+                <p className={style.homeDescription + ' desc text-lg'}>
+                  Full-Stack developer. I live in Turkey. 15 y/o high school
+                  student. I am a self-improvement ordinary person who continues
+                  to improve.
+                </p>
+              </div>
+              <div className="col-span-2">
+                <img className="rounded-full shadow-lg w-4/5" src="/images/me.jpg" />
+              </div>
+            </div>
             <div className="flex">
               <button className={appStyle.button + ' mt-4 mr-2'}>
                 <a href="https://instagram.com/emirhann2xl" target="_blank">
@@ -48,8 +55,8 @@ function Home({ HomeProps }) {
               </button>
             </div>
             <div className="mt-16">
-              <BlogList/>
-              <Technologies/>
+              <BlogList />
+              <Technologies />
             </div>
           </div>
         </div>
