@@ -4,7 +4,7 @@ function About() {
   return (
     <div>
       <Head>
-        <title>About Me | Jetzlex</title>
+        <title>Blog | Jetzlex</title>
       </Head>
       <div className="max-w-4xl mx-auto">
         <div className="mt-5 md:mt-12 px-5 md:px-0">
