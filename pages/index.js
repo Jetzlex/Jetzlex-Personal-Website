@@ -3,8 +3,11 @@ import style from '../public/styles/modules/Home.module.css';
 import appStyle from '../public/styles/modules/App.module.css';
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Home({ HomeProps }) {
+  const { loginWithPopup, isLoading, isAuthenticated, user } = useAuth0();
+  console.log(isAuthenticated, user)
   return (
     <div>
       <Head>
@@ -14,7 +17,7 @@ function Home({ HomeProps }) {
         <div className="mt-5 md:mt-12 px-5 md:px-0">
           <div>
             <p className={style.homeTitle + ' text-5xl mb-2 font-extrabold'}>
-              Jetzlex
+              Jetzlex | 
             </p>
             <p className={style.homeDescription + ' desc text-lg max-w-xl'}>
               Full-Stack developer. I live in Turkey. 15 y/o high school
@@ -49,14 +52,14 @@ function Home({ HomeProps }) {
                   <div style={{ width: '350px' }}>
                     <Link href="/blog/1">
                       <div
-                        className="h-full w-full rounded-lg blogCardImg"
+                        className="cursor-pointer h-full w-full rounded-lg blogCardImg"
                         style={{
                           backgroundImage:
                             'url(https://gblobscdn.gitbook.com/spaces%2F-MI33Czuy4Y_LUXwerXD%2Favatar-1601017486692.png?alt=media)',
                           backgroundSize: 'cover',
                         }}
                       >
-                        <i className="fal fa-link relative top-0 left-0 right-0 bottom-0 text-white"></i>
+                        <i className="cursor-pointer fal fa-link relative top-0 left-0 right-0 bottom-0 text-white"></i>
                       </div>
                     </Link>
                   </div>
@@ -73,6 +76,12 @@ function Home({ HomeProps }) {
                   </div>
                 </div>
               </div>
+              <button
+                className="bg-red-500 text-white p-3"
+                onClick={() => loginWithPopup()}
+              >
+                Log In
+              </button>
             </div>
           </div>
         </div>
