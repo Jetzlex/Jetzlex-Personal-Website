@@ -6,6 +6,7 @@ import Router from 'next/router';
 import Head from 'next/head';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { useAuth0 } from "@auth0/auth0-react";
+import Footer from '../components/footer';
 
 
 Router.onRouteChangeStart = (url) => {
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps }) {
     <Auth0Provider
       domain="dev-5vj9kuhg.us.auth0.com"
       clientId="dhzLwDeOsnYrW56sluiAXfbqdD2tTsAg"
-      redirectUri="https://jetzlex.xyz"
+      redirectUri="http://localhost"
     >
       <Head>
         <link
@@ -36,6 +37,7 @@ function MyApp({ Component, pageProps }) {
       <main>
         <Component {...pageProps} />
       </main>
+      <Footer/>
     </Auth0Provider>
   );
 }
