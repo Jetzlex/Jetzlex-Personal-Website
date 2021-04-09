@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.4.0",
+    "animate.css": "^4.1.1",
+    "firebase": "^8.3.3",
     "fs": "^0.0.1-security",
     "isomorphic-unfetch": "^3.1.0",
     "lowdb": "^1.0.0",

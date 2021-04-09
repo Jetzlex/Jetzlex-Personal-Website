@@ -1,14 +1,28 @@
 import Head from 'next/head';
+import Notification from '../components/Notification';
 import React, { useState, useEffect } from 'react';
 import appStyle from '../public/styles/modules/App.module.css';
+import db from '../lib/firebase';
+import { useRouter } from 'next/router';
 
 function Contact() {
+  const route = useRouter();
   const [click, setClick] = useState(false);
+  const [isSuccess, isSuccessSet] = useState(false);
+  const [buttonLoading, setButtonLoading] = useState(false);
   const [lengthError, setLengthError] = useState(false);
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    if (buttonLoading == true) {
+      document.querySelector(".submitbtn").innerHTML = "<i class='animate-spin fad fa-spinner-third'></i> <span class='italic'>Please wait...</span>"; 
+    } else {
+      document.querySelector(".submitbtn").innerHTML = "Submit"; 
+    }
+  }, [buttonLoading]);
 
   useEffect(
     (e) => {
@@ -20,12 +34,33 @@ function Contact() {
       }
       if (message.length < 20) {
         setLengthError(true);
+        setButtonLoading(false);
       } else {
         setLengthError(false);
       }
     },
     [message]
   );
+
+
+  useEffect(() => {
+    if (message.length > 20 && name.length > 0 && surname.length > 0 && email.length > 0) {
+      db.collection('contacts')
+        .doc()
+        .set({ name: name, surname: surname, email: email, message: message })
+        .then((a) => {
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 700);
+          setButtonLoading(false);
+          isSuccessSet(true);
+        });
+    }
+    setTimeout(() => {
+      setButtonLoading(false);
+    }, 1000);
+  }, [click]);
+
   return (
     <div>
       <Head>
@@ -41,7 +76,7 @@ function Contact() {
           <br />
           <br />
           <div className="md:grid md:grid-cols-3 gap-5">
-            <div class="col-span-2">
+            <div className="col-span-2">
               <div className="gap-5 grid grid-cols-2">
                 <div>
                   <p className="form-label">Name:</p>
@@ -77,7 +112,7 @@ function Contact() {
                     </p>
                   )}
                 </div>
-                <div class="col-span-2">
+                <div className="col-span-2">
                   <p className="form-label">E-Mail:</p>
                   <input
                     autoComplete="off"
@@ -121,35 +156,63 @@ function Contact() {
                 </div>
               </div>
               <button
-                onClick={() => setClick(true)}
-                className="mt-5 bg-blue-500 rounded-md py-3 px-4 text-white text-center hover:bg-blue-600 focus:outline-none"
+                onClick={() => {
+                  setButtonLoading(true);
+                  setClick(true);
+                }}
+                className="submitbtn mt-5 bg-blue-500 rounded-md py-3 px-4 text-white text-center hover:bg-blue-600 focus:outline-none"
               >
                 Submit
               </button>
             </div>
             <div>
-                <div className={appStyle.card_1 + " flex card_1 items-center"}>
-                    <div>
-                        <i className="fab fa-discord" style={{fontSize: "40px"}}></i>
-                    </div>
-                    <div className="ml-3">
-                        <p className="text-indigo-500 font-semibold text-xl mb-0">Discord</p>
-                        <a href="https://discord.gg/MHGt48VRrM" target="_blank" class="text-gray-400 mt-0 italic font-semibold text-sm hover:underline">discord.gg/MHGt48VRrM</a>
-                    </div>
+              <div className={appStyle.card_1 + ' flex card_1 items-center'}>
+                <div>
+                  <i
+                    className="fab fa-discord"
+                    style={{ fontSize: '40px' }}
+                  ></i>
                 </div>
-                <div className={appStyle.card_1 + " flex card_1 items-center mt-4"}>
-                    <div>
-                        <i className="fab fa-telegram" style={{fontSize: "40px"}}></i>
-                    </div>
-                    <div className="ml-3">
-                        <p className="text-indigo-500 font-semibold text-xl mb-0">Telegram</p>
-                        <a href="https://t.me/jetzlex" target="_blank" class="text-gray-400 mt-0 italic font-semibold text-sm hover:underline">t.me/jetzlex</a>
-                    </div>
+                <div className="ml-3">
+                  <p className="text-indigo-500 font-semibold text-xl mb-0">
+                    Discord
+                  </p>
+                  <a
+                    href="https://discord.gg/MHGt48VRrM"
+                    target="_blank"
+                    className="text-gray-400 mt-0 italic font-semibold text-sm hover:underline"
+                  >
+                    discord.gg/MHGt48VRrM
+                  </a>
                 </div>
+              </div>
+              <div
+                className={appStyle.card_1 + ' flex card_1 items-center mt-4'}
+              >
+                <div>
+                  <i
+                    className="fab fa-telegram"
+                    style={{ fontSize: '40px' }}
+                  ></i>
+                </div>
+                <div className="ml-3">
+                  <p className="text-indigo-500 font-semibold text-xl mb-0">
+                    Telegram
+                  </p>
+                  <a
+                    href="https://t.me/jetzlex"
+                    target="_blank"
+                    className="text-gray-400 mt-0 italic font-semibold text-sm hover:underline"
+                  >
+                    t.me/jetzlex
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      {isSuccess && <Notification status="success" message="Thanks for contacting me." />}
     </div>
   );
 }
