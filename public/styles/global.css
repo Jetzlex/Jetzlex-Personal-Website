@@ -7,6 +7,7 @@
   body {
     background: #000;
     font-family: 'Poppins', sans-serif;
+    color: white;
   }
   .border-jetzlex {
     border-color: #21252c;
@@ -19,6 +20,13 @@
   }
   .badge {
     @apply rounded-lg bg-gray w-full py-1 px-3 text-white;
+  }
+  .form-label {
+    @apply mb-2;
+  }
+  .form-input {
+    @apply rounded-md bg-transparent w-full py-3 px-4 text-gray-400 border-jetzlex border focus:outline-none focus:border-gray-500;
+    font-weight: 300;
   }
   .line-clamp-1 {
     overflow: hidden;

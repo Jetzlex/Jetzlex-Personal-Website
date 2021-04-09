@@ -13,6 +13,11 @@ function Header() {
               </Link>
             </li>
             <li className={style.navItem}>
+              <Link href="/contact">
+                <a className="font-opacity-100 hover:opacity-75">Contact</a>
+              </Link>
+            </li>
+            <li className={style.navItem}>
               <Link href="/about">
                 <a className="font-opacity-100 hover:opacity-75">About</a>
               </Link>
