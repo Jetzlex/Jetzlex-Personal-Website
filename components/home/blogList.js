@@ -4,7 +4,7 @@ import Link from 'next/link';
 function BlogList() {
   return (
     <>
-      <p class="font-bold text-2xl mt-5 text-white mb-5">
+      <p className="font-bold text-2xl mt-5 text-white mb-5">
         <i className="fal mr-2 fa-newspaper"></i> Blogs
       </p>
       <div className="bg-red-600 rounded-md py-3 px-4 text-white italic">

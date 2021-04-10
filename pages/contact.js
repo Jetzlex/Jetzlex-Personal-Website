@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 function Contact() {
   const route = useRouter();
   const [click, setClick] = useState(false);
+  const [click2, setClick2] = useState(false);
   const [isSuccess, isSuccessSet] = useState(false);
   const [buttonLoading, setButtonLoading] = useState(false);
   const [lengthError, setLengthError] = useState(false);
@@ -18,7 +19,7 @@ function Contact() {
 
   useEffect(() => {
     if (buttonLoading == true) {
-      document.querySelector(".submitbtn").innerHTML = "<i class='animate-spin fad fa-spinner-third'></i> <span class='italic'>Please wait...</span>"; 
+      document.querySelector(".submitbtn").innerHTML = "<i className='animate-spin fad fa-spinner-third'></i> <span className='italic'>Please wait...</span>"; 
     } else {
       document.querySelector(".submitbtn").innerHTML = "Submit"; 
     }
@@ -55,6 +56,8 @@ function Contact() {
           setButtonLoading(false);
           isSuccessSet(true);
         });
+    } else {
+      setClick(false);
     }
     setTimeout(() => {
       setButtonLoading(false);
@@ -89,7 +92,7 @@ function Contact() {
                     id="name"
                     placeholder="Your name"
                   />
-                  {click && !name && (
+                  {click2 && !name && (
                     <p className="text-red-600 mt-2 italic">
                       Please enter a name.
                     </p>
@@ -106,7 +109,7 @@ function Contact() {
                     id="surname"
                     placeholder="Your surname"
                   />
-                  {click && !surname && (
+                  {click2 && !surname && (
                     <p className="text-red-600 mt-2 italic">
                       Please enter a surname.
                     </p>
@@ -123,7 +126,7 @@ function Contact() {
                     id="email"
                     placeholder="Your E-mail"
                   />
-                  {click && !email && (
+                  {click2 && !email && (
                     <p className="text-red-600 mt-2 italic">
                       Please enter a e-mail.
                     </p>
@@ -143,12 +146,12 @@ function Contact() {
                   <p className="text-gray-500 text-right ml-auto text-sm">
                     <span id="message_length">0</span>/2000
                   </p>
-                  {click && !message && (
+                  {click2 && !message && (
                     <p className="text-red-600 -mt-5 mb-3 italic">
                       Please enter a message.
                     </p>
                   )}
-                  {click && message && lengthError && (
+                  {click2 && message && lengthError && (
                     <p className="text-red-600 -mt-5 mb-3 italic">
                       Minimum message length is 20.
                     </p>
@@ -158,6 +161,7 @@ function Contact() {
               <button
                 onClick={() => {
                   setButtonLoading(true);
+                  setClick2(true);
                   setClick(true);
                 }}
                 className="submitbtn mt-5 bg-blue-500 rounded-md py-3 px-4 text-white text-center hover:bg-blue-600 focus:outline-none"

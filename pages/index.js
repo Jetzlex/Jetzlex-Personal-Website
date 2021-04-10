@@ -15,8 +15,8 @@ function Home({ HomeProps }) {
       <div className="max-w-4xl mx-auto">
         <div className="mt-5 md:mt-12 px-5 md:px-0">
           <div>
-            <div class="grid grid-cols-10 items-center">
-              <div class="col-span-8">
+            <div className="grid grid-cols-10 items-center">
+              <div className="col-span-8">
                 <p
                   className={style.homeTitle + ' text-5xl mb-2 font-extrabold'}
                 >

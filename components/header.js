@@ -22,11 +22,6 @@ function Header() {
                 <a className="font-opacity-100 hover:opacity-75">About</a>
               </Link>
             </li>
-            <li className={style.navItem}>
-              <Link href="/blog">
-                <a className="font-opacity-100 hover:opacity-75">Blog</a>
-              </Link>
-            </li>
           </ul>
         </nav>
       </div>

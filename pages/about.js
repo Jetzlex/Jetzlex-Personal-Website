@@ -13,7 +13,7 @@ function About() {
             I tried to explain myself in the best way possible.
           </p>
           <div className="border-b border-gray-300 mt-5 mb-6 w-20"></div>
-          <p class="text-gray-300">
+          <p className="text-gray-300">
             <i className="text-4xl ml-0 twa twa-us"></i>
             <br />
             Hello, I'm Emirhan. In fact I am 15 years old but look like 18 😂 I
